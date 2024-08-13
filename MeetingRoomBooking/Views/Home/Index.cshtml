@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4 mb-1">Meeting Room Booking App</h1>
+            <p class="lead mb-3">Please select a login option:</p>
+
+            <div class="row">
+                <!-- Admin Login Section -->
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow-sm border-light">
+                        <img src="~/images/admin-login.jfif" class="card-img-top img-fluid" style="max-height: 180px; width: auto;" alt="Admin Login Image">
+                        <div class="card-body">
+                            <h5 class="card-title h6">Admin Login</h5>
+                            <p class="card-text small">Access administrative features and manage the booking system.</p>
+                            <a href="@Url.Action("Login", "Admin")" class="btn btn-primary btn-sm w-100">Admin Login</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Login Section -->
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow-sm border-light">
+                        <img src="~/images/user-login.jpg" class="card-img-top img-fluid" style="max-height: 180px; width: auto;" alt="User Login Image">
+                        <div class="card-body">
+                            <h5 class="card-title h6">User Login</h5>
+                            <p class="card-text small">Log in to book meeting rooms and manage your bookings.</p>
+                            <a href="@Url.Action("Login", "User")" class="btn btn-secondary btn-sm w-100">User Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

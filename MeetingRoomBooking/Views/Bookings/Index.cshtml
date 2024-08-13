@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MeetingRoomBooking.Models.Booking>
+
+<div class="container">
+    <!-- Header section with logout button on the right -->
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Bookings</h1>
+            <br />
+            <h3>Welcome, @User.Identity.Name!</h3>
+        </div>
+    </div>
+
+    <!-- Actions section -->
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-controller="MeetingRooms" asp-action="Index" class="btn btn-secondary">View Rooms</a>
+        }
+    </p>
+
+    <!-- Bookings table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Meeting Room</th>
+                <th>Booker</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MeetingRoom.Name</td>
+                    <td>@item.Booker</td>
+                    <td>@item.StartTime</td>
+                    <td>@item.EndTime</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to Cancel the booking?');">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
